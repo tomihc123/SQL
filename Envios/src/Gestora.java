@@ -74,9 +74,9 @@ public class Gestora {
                 insertAsignaciones.executeUpdate();
 
             } catch (SQLException e) {
-
-                e.printStackTrace();
-
+                if(e.getErrorCode()==50001) {
+                    System.out.println("No hay espacio");
+                }
             }
 
 

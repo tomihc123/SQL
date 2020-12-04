@@ -7,8 +7,6 @@ public class Main {
 
         Gestora gestor = new Gestora();
 
-        gestor.showListShipping();
-
         gestor.assignShipmentsToWarehouses();
 
     }

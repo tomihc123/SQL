@@ -14,7 +14,6 @@ public class MiConexion {
         Connection conexionBaseDatos = DriverManager.getConnection(sourceURL, usuario, password);
 
         return conexionBaseDatos;
-
     }
 
     public static void cerrar ( ResultSet rs ) throws SQLException {
