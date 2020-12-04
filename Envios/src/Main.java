@@ -9,7 +9,6 @@ public class Main {
 
         gestor.showListShipping();
 
-        gestor.assignShipmentsToWarehouses();
 
     }
 }
