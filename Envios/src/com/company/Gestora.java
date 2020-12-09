@@ -1,3 +1,6 @@
+package com.company;
+
+import javax.sound.sampled.Mixer;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -28,7 +31,7 @@ public class Gestora {
         while(this.resultado.next()) {
 
 
-            System.out.println("NumContenedores"+" "+this.resultado.getString("NumeroContenedores") + "  " + "FechaAsignacion"+ "   " + this.resultado.getString("FechaAsignacion"));
+            System.out.println("IDEnvio"+ " "+this.resultado.getInt("ID") + "  " + "NumContenedores"+" "+this.resultado.getString("NumeroContenedores") + "  " + "FechaAsignacion"+ "   " + this.resultado.getString("FechaAsignacion"));
 
         }
 
@@ -72,11 +75,17 @@ public class Gestora {
                 insertAsignaciones.setInt(1, shipmentId);
                 insertAsignaciones.setInt(2, warehouseId);
                 insertAsignaciones.executeUpdate();
+                updateShipments(shipmentId);
+
 
             } catch (SQLException e) {
+
                 if(e.getErrorCode()==50001) {
+
                     System.out.println("No hay espacio");
+
                 }
+
             }
 
 
@@ -95,5 +104,16 @@ public class Gestora {
         return stringDate;
 
     }
+
+    public void updateShipments(int idShipment) throws SQLException {
+
+        String sentence = "UPDATE Envios SET FechaAsignacion = ? WHERE ID = ?";
+        PreparedStatement updateStatment = this.conexion.prepareStatement(sentence);
+        updateStatment.setString(1, getTodayDate());
+        updateStatment.setInt(2, idShipment);
+        updateStatment.executeUpdate();
+
+    }
+
 
 }
