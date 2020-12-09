@@ -1,4 +1,4 @@
-CREATE TRIGGER hayEspcacioEnAlmacenAsignado ON [dbo].[Asignaciones] FOR INSERT AS
+CREATE OR ALTER TRIGGER hayEspcacioEnAlmacenAsignado ON [dbo].[Asignaciones] FOR INSERT AS
 BEGIN
 	
 	
@@ -13,7 +13,7 @@ BEGIN
 
 
 	SELECT @IDAlmacenAsignado =  IDAlmacen FROM inserted;
-	SELECT @IDAlmacenAsignado = IDEnvio FROM inserted;
+	SELECT @IDEnvioAsignado = IDEnvio FROM inserted;
 
 	SELECT @CapacidadAlmacen = Capacidad FROM Almacenes WHERE ID = @IDAlmacenAsignado;
 	SELECT @NumContenedoresAAsignar = NumeroContenedores FROM Envios
@@ -35,3 +35,5 @@ BEGIN
 	END
 		--Que bonito se programa en sql dios
 END
+
+
