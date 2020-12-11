@@ -30,7 +30,7 @@ BEGIN
 
 	IF @HayEspacio = 0 -- Cuando no hay espacio suficiente
 	BEGIN
-		RAISERROR ('El almacén a asignar no dispone de espacio suficiente',10,1);
+		RAISERROR (50001,10,1);
 		ROLLBACK
 	END
 		--Que bonito se programa en sql dios
