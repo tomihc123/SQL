@@ -1,12 +1,5 @@
 ﻿USE master DROP DATABASE AlmacenesLeo
 
-CREATE LOGIN pepito with password='qq',
-DEFAULT_DATABASE=AlmacenesLeo
-USE AlmacenesLeo
-CREATE USER pepito FOR LOGIN pepito
-GRANT EXECUTE, INSERT, UPDATE, DELETE,
-SELECT TO pepito
-
 -- Almacenes
 CREATE DATABASE AlmacenesLeo
 GO
@@ -157,10 +150,11 @@ BEGIN
 	DECLARE @HayEspacio BIT;
 
 
-	SELECT @IDAlmacenAsignado =  IDAlmacen FROM inserted;
+	SELECT @IDAlmacenAsignado =  IDAlmacen FROM inserted; --Cogemos el almacen 
 
-
-	SELECT @HayEspacio = CASE WHEN (dbo.espacioDisponibleAlmacen(@IDAlmacenAsignado) >= 0) THEN 1 ELSE 0 
+	--Aqui me salia un error, como no hay before insert en sql el envio como se me habia asignado entonces aqui en este caso la funcion esta teniendo ya en cuenta el numero de contenedores
+	--es decir no hay que hacer dbo.espacioDisponibleAlmacen - numContenedores a asignar ya que la funcion te esta devolviendo eso ya restado
+	SELECT @HayEspacio = CASE WHEN (dbo.espacioDisponibleAlmacen(@IDAlmacenAsignado) >= 0) THEN 1 ELSE 0 --Si es espacio disponible en ese almacen es mayor que 0
 	END
 
 
@@ -180,15 +174,28 @@ SELECT * FROM Distancias
 
 GO
 
+/*
+
+Procedimiento que recibe como parametro el almacen del que partimos, y el numero de contenedores
+Tendra un parametro de salida el cual devolvera el almacen con espacio mas cercano al original
+
+Entrdas: Int almacenOriginal, numContenedores
+Salidas: almacenDisponible
+
+
+
+*/
+
 CREATE OR ALTER PROCEDURE almacenMasCercanoConEspacio @almacenOriginal int, @numContenedores int, @almacenDisponible int OUTPUT AS
 
 BEGIN
 
-	IF @almacenOriginal = 30
+	IF @almacenOriginal = 30 --Esto es un poco chapucero pero no tenia mucho tiempo, basicamente el almacen 3O no se encuentra en la columna almacen1ç
+	--CREAMOS UN cursor para la tabla
 	BEGIN 
 	DECLARE micursor CURSOR FOR SELECT IDAlmacen1 FROM Distancias WHERE IDAlmacen2 = @almacenOriginal ORDER BY Distancia
 	END
-	ELSE
+	ELSE 
 	BEGIN
     DECLARE micursor CURSOR FOR SELECT IDAlmacen2 FROM Distancias WHERE IDAlmacen1 = @almacenOriginal ORDER BY Distancia
 	END
@@ -221,3 +228,11 @@ BEGIN
 END
 
 GO
+
+
+CREATE LOGIN pepito with password='qq',
+DEFAULT_DATABASE=AlmacenesLeo
+USE AlmacenesLeo
+CREATE USER pepito FOR LOGIN pepito
+GRANT EXECUTE, INSERT, UPDATE, DELETE,
+SELECT TO pepito

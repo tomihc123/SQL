@@ -10,14 +10,14 @@ public class Utilidades {
 
         do {
 
-            respuesta = teclado.nextLine();
+            respuesta = teclado.nextLine(); //Leemos lo que introduce el usuario
 
-            if (respuesta.toLowerCase().equals("si")) {
+            if (respuesta.toLowerCase().equals("si")) { //Si la respuesta es si
 
                 continuar = true;
             }
 
-            if(!respuesta.toLowerCase().equals("si") && !respuesta.toLowerCase().equals("no")) {
+            if(!respuesta.toLowerCase().equals("si") && !respuesta.toLowerCase().equals("no")) { //Si el usuario no introduce ni si ni no, mostramos mensaje de ayuda
 
                 System.out.println();
                 System.out.println("Introduzca si o no: ");
