@@ -14,7 +14,7 @@ public class Main {
 
         if(Utilidades.deseaContinuar()) {
 
-            gestor.assignShipmentsToWarehouses();
+            gestor.asignarEnviosParaAlmacenes();
             gestor.mostrarListadoEnvios();
 
         }

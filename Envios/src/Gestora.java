@@ -20,6 +20,14 @@ public class Gestora {
 
     }
 
+/*
+
+Entradas: Ninguna
+Salidas: Ninguna
+Muestra por pantalla todos los envios
+
+*/
+
     public void mostrarListadoEnvios() throws SQLException {
 
         String sentencia = "SELECT ID, NumeroContenedores, FechaAsignacion FROM Envios"; //EL query
@@ -34,6 +42,15 @@ public class Gestora {
         }
 
     }
+
+
+/*
+
+Entradas: Ninguna
+Salidas: Ninguna
+Inserta los envios en las asignaciones
+
+*/
 
     private void insertarEnviosEnAsignaciones() throws SQLException {
 
@@ -66,7 +83,7 @@ public class Gestora {
     }
 
 
-    public void assignShipmentsToWarehouses() throws SQLException {
+    public void asignarEnviosParaAlmacenes() throws SQLException {
 
         String sentence = "SELECT ID, NumeroContenedores, FechaAsignacion, AlmacenPreferido FROM Envios WHERE FechaAsignacion IS NULL"; //El query para saber todos los enviios que tenemos que asignar
 
@@ -81,7 +98,7 @@ public class Gestora {
 
             } catch (SQLException e) {
 
-                actualizarEnvio(); //Para ese envio no se ha podido insertar en su almacen preferido luego preguntamos al usuario por otro alternativo mas cercano y con espacio
+                preguntarNuevoAlmacen(); //Para ese envio no se ha podido insertar en su almacen preferido luego preguntamos al usuario por otro alternativo mas cercano y con espacio
 
             }
         }
