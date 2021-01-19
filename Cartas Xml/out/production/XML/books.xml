@@ -1,0 +1,138 @@
+<juego>
+    <partida id="1">
+        <jugador id="2">
+            <nombre>Arturo</nombre>
+            <jugada>
+                <carta orden="1">
+                    <palo>Copas</palo>
+                    <numero>3</numero>
+                </carta>
+                <carta orden="2">
+                    <palo>Oros</palo>
+                    <numero>3</numero>
+                </carta>
+            </jugada>
+        </jugador>
+        <jugador id="5">
+            <nombre>Rafaela</nombre>
+            <jugada>
+                <carta orden="1">
+                    <palo>Bastos</palo>
+                    <numero>Caballo</numero>
+                </carta>
+                <carta orden="2">
+                    <palo>Copas</palo>
+                    <numero>5</numero>
+                </carta>
+                <carta orden="3">
+                    <palo>Espadas</palo>
+                    <numero>1</numero>
+                </carta>
+            </jugada>
+        </jugador>
+        <jugador id="6">
+            <nombre>Carmen</nombre>
+            <jugada>
+                <carta orden="1">
+                    <palo>Espadas</palo>
+                    <numero>Rey</numero>
+                </carta>
+                <carta orden="2">
+                    <palo>Copas</palo>
+                    <numero>2</numero>
+                </carta>
+                <carta orden="3">
+                    <palo>Copas</palo>
+                    <numero>6</numero>
+                </carta>
+            </jugada>
+        </jugador>
+        <jugador id="8">
+            <nombre>Inocencio</nombre>
+            <jugada>
+                <carta orden="1">
+                    <palo>Bastos</palo>
+                    <numero>3</numero>
+                </carta>
+                <carta orden="2">
+                    <palo>Oros</palo>
+                    <numero>Sota</numero>
+                </carta>
+                <carta orden="3">
+                    <palo>Espadas</palo>
+                    <numero>6</numero>
+                </carta>
+            </jugada>
+        </jugador>
+    </partida>
+    <partida id="2">
+        <jugador id="2">
+            <nombre>Arturo</nombre>
+            <jugada>
+                <carta orden="1">
+                    <palo>Copas</palo>
+                    <numero>Sota</numero>
+                </carta>
+                <carta orden="2">
+                    <palo>Oros</palo>
+                    <numero>3</numero>
+                </carta>
+                <carta orden="3">
+                    <palo>Espadas</palo>
+                    <numero>2</numero>
+                </carta>
+            </jugada>
+        </jugador>
+        <jugador id="5">
+            <nombre>Rafaela</nombre>
+            <jugada>
+                <carta orden="1">
+                    <palo>Oros</palo>
+                    <numero>4</numero>
+                </carta>
+                <carta orden="2">
+                    <palo>Copas</palo>
+                    <numero>1</numero>
+                </carta>
+                <carta orden="3">
+                    <palo>Espadas</palo>
+                    <numero>4</numero>
+                </carta>
+            </jugada>
+        </jugador>
+        <jugador id="6">
+            <nombre>Carmen</nombre>
+            <jugada>
+                <carta orden="1">
+                    <palo>Espadas</palo>
+                    <numero>Rey</numero>
+                </carta>
+                <carta orden="2">
+                    <palo>Copas</palo>
+                    <numero>2</numero>
+                </carta>
+                <carta orden="3">
+                    <palo>Copas</palo>
+                    <numero>Caballo</numero>
+                </carta>
+            </jugada>
+        </jugador>
+        <jugador id="8">
+            <nombre>Inocencio</nombre>
+            <jugada>
+                <carta orden="1">
+                    <palo>Oros</palo>
+                    <numero>Rey</numero>
+                </carta>
+                <carta orden="2">
+                    <palo>Oros</palo>
+                    <numero>Sota</numero>
+                </carta>
+                <carta orden="3">
+                    <palo>Espadas</palo>
+                    <numero>5</numero>
+                </carta>
+            </jugada>
+        </jugador>
+    </partida>
+</juego>
