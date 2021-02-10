@@ -7,6 +7,7 @@ public class Apuesta {
     private String resultado;
     private boolean overUnder;
     private double numero;
+    private short handicap;
 
     public Apuesta() {
     }
@@ -76,5 +77,13 @@ public class Apuesta {
 
     public void setNumero(double numero) {
         this.numero = numero;
+    }
+
+    public short getHandicap() {
+        return handicap;
+    }
+
+    public void setHandicap(short handicap) {
+        this.handicap = handicap;
     }
 }

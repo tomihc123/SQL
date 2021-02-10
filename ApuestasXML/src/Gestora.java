@@ -60,4 +60,21 @@ public class Gestora {
         return idApuesta;
 
     }
+
+    public int anadirApuestasTipo3(Apuesta apuesta) throws SQLException {
+
+        this.insertarApuestaTipo3.setInt(1, apuesta.getIdUsuario());
+        this.insertarApuestaTipo3.setInt(2, apuesta.getIdPartido());
+        this.insertarApuestaTipo3.setBigDecimal(3, java.math.BigDecimal.valueOf(apuesta.getDineroApostado()));
+        this.insertarApuestaTipo3.setTimestamp(4, java.sql.Timestamp.valueOf(apuesta.getFecha()));
+        this.insertarApuestaTipo3.setShort(5, apuesta.getHandicap());
+        this.insertarApuestaTipo3.registerOutParameter(6, Types.INTEGER); //Registramos el parametro de salida
+        this.insertarApuestaTipo3.executeUpdate();
+
+        int idApuesta = this.insertarApuestaTipo3.getInt(6);
+
+        return idApuesta;
+
+    }
+
 }

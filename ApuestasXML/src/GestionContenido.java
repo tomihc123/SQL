@@ -6,12 +6,13 @@
 import org.xml.sax.helpers.*;
 import org.xml.sax.*;
 
+import java.net.SocketTimeoutException;
 import java.sql.SQLException;
 
 public class GestionContenido extends DefaultHandler {
 
     private Apuesta apuesta;
-    private boolean esUsuario, esPartido, esImporte, esFecha, esResultado, overHunder, numero;
+    private boolean esUsuario, esPartido, esImporte, esFecha, esResultado, overHunder, numero, handicap;
     private Gestora gestoraSql;
 
     public GestionContenido()  {
@@ -62,6 +63,10 @@ public class GestionContenido extends DefaultHandler {
             case "numero":
                 this.numero = true;
                 break;
+
+            case "handicap":
+                this.handicap = true;
+                break;
         }
 
     }
@@ -73,7 +78,7 @@ public class GestionContenido extends DefaultHandler {
            case "apuestatipo1":
 
                try {
-                   this.gestoraSql.anadirApuestasTipo1(this.apuesta);
+                   System.out.println("Apuesta tipo 1 insertada con id "+this.gestoraSql.anadirApuestasTipo1(this.apuesta));
                    this.apuesta = new Apuesta();
                } catch (SQLException throwables) {
                    throwables.printStackTrace();
@@ -83,13 +88,19 @@ public class GestionContenido extends DefaultHandler {
 
            case "apuestatipo2":
                try {
-                   this.gestoraSql.anadirApuestasTipo2(this.apuesta);
-                   this.apuesta = new Apuesta();
+                   System.out.println("Apuesta tipo 2 insertada con id "+this.gestoraSql.anadirApuestasTipo2(this.apuesta));
                } catch (SQLException throwables) {
-                   throwables.printStackTrace();
+                       throwables.printStackTrace();
                }
 
                break;
+
+           case "apuestatipo3":
+               try {
+                   System.out.println("Apuesta tipo 3 insertada con id "+this.gestoraSql.anadirApuestasTipo3(this.apuesta));
+               } catch (SQLException throwables) {
+                       throwables.printStackTrace();
+               }
 
        }
 
@@ -128,6 +139,10 @@ public class GestionContenido extends DefaultHandler {
         if(this.numero) {
             apuesta.setNumero(Double.parseDouble(cad));
             this.numero = false;
+        }
+        if(this.handicap) {
+            apuesta.setHandicap(Short.parseShort(cad));
+            this.handicap = false;
         }
     }
 }
