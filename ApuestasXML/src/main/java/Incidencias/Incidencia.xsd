@@ -1,0 +1,17 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:complexType name="incidencia">
+        <xs:sequence>
+            <xs:element name="usuario" type="xs:string"/>
+            <xs:element name="fecha" type="xs:string"/>
+            <xs:element name="evento" type="xs:string"/>
+            <xs:element name="importe" type="xs:string"/>
+            <xs:element name="motivoRechazo" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="incidencias">
+        <xs:sequence>
+            <xs:element name="incidencia" type="incidencia" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="incidencias" type="incidencias"/>
+</xs:schema>

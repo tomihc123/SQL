@@ -1,3 +1,11 @@
+
+/*
+
+El modelo para las apuestas para gestionar la informacion de esta entidad
+
+
+ */
+
 public class Apuesta {
 
     private int idUsuario;

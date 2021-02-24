@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.concurrent.Callable;
 
 
-public class Gestora {
+public class GestoraSQL {
 
     private final Connection conexion;
     private Statement sentencia;
@@ -18,7 +18,7 @@ public class Gestora {
     private final String sentenciaInsertarApuestaTipo2 =  "EXECUTE GrabarApuestaOverUnder ?, ?, ?, ?, ?, ?, ?";
     private final String sentenciaInsertarApuestaTipo3 =  "EXECUTE GrabarApuestaHandicap ?, ?, ?, ?, ?, ?";
 
-    public Gestora() throws SQLException {
+    public GestoraSQL() throws SQLException {
 
         this.conexion = MiConexion.getConexion(); //Obtenemos la conexion a la base de datos
         this.sentencia = this.conexion.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE); //Objeto de tipo statment, los parametros sirven para poder actualizar con resultset

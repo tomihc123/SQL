@@ -1,0 +1,25 @@
+<apuestas>
+    <apuestatipo1>
+        <idusuario>2</idusuario>
+        <idpartida>1</idpartida>
+        <importe>1</importe>
+        <fecha>2021-06-14 21:00:00</fecha>
+        <resultado>1</resultado>
+    </apuestatipo1>
+    <apuestatipo2>
+        <idusuario>3</idusuario>
+        <idpartida>1</idpartida>
+        <importe>0.5</importe>
+        <fecha>2021-06-14 21:00:00</fecha>
+        <resultado>2</resultado>
+        <overunder>true</overunder>
+        <numero>1</numero>
+    </apuestatipo2>
+    <apuestatipo3>
+        <idusuario>4</idusuario>
+        <idpartida>1</idpartida>
+        <importe>20</importe>
+        <fecha>2021-06-14 21:00:00</fecha>
+        <handicap>3</handicap>
+    </apuestatipo3>
+</apuestas>

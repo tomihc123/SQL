@@ -4,7 +4,7 @@ public class Main {
 
 	public static void main(String[] args)  {
 
-		String nombreArchivo = "src\\apuestas.xml";
+		String nombreArchivo = "XML\\Apuestas.xml";
 
 			try {
 				PruebaSAX1 probando = new PruebaSAX1(nombreArchivo);

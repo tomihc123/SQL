@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<incidencias>
+    <incidencia>
+        <usuario>2</usuario>
+        <fecha>2021-06-14 21:00:00</fecha>
+        <evento>Resultados (Evento Tipo 1)</evento>
+        <importe>1.0</importe>
+        <motivoRechazo>El partido esta cerrado</motivoRechazo>
+    </incidencia>
+    <incidencia>
+        <usuario>3</usuario>
+        <fecha>2021-06-14 21:00:00</fecha>
+        <evento>Handicap (Evento Tipo 2)</evento>
+        <importe>0.5</importe>
+        <motivoRechazo>El partido esta cerrado</motivoRechazo>
+    </incidencia>
+    <incidencia>
+        <usuario>4</usuario>
+        <fecha>2021-06-14 21:00:00</fecha>
+        <evento>OverHunder (Evento Tipo 3)</evento>
+        <importe>20.0</importe>
+        <motivoRechazo>El partido esta cerrado</motivoRechazo>
+    </incidencia>
+</incidencias>
