@@ -1,17 +1,17 @@
 Release Information
-Microsoft JDBC Driver 8.4 for SQL Server
-August 2020
+Microsoft JDBC Driver 9.2 for SQL Server
+January 2021
 
 ------------
 INTRODUCTION
 ------------
 This file contains late-breaking or other important information that supplements the Microsoft JDBC 
-Driver 8.4 for SQL Server documentation. You should read this file completely before installing 
+Driver 9.2 for SQL Server documentation. You should read this file completely before installing 
 the JDBC driver.
 
 Your feedback is very important to us and we will strive to respond to your feedback in a timely 
 manner. For information about providing feedback by using the JDBC driver blogs and online forums, 
-see the Microsoft JDBC Driver 8.4 for SQL Server page at https://aka.ms/mssql-jdbc-feedback
+see the Microsoft JDBC Driver 9.2 for SQL Server page at https://aka.ms/mssql-jdbc-feedback
 
 
 ------------
@@ -24,7 +24,7 @@ information about installing the JDBC driver on Windows, Linux and macOS operati
 ---------------------------
 SUPPORTED OPERATING SYSTEMS
 ---------------------------
-Supported operating systems for Microsoft JDBC Driver 8.4 for SQL Server include:
+Supported operating systems for Microsoft JDBC Driver 9.2 for SQL Server include:
   Windows Server 2012
   Windows Server 2012 R2
   Windows Server 2016
@@ -44,33 +44,33 @@ However, only the latest operating systems of Linux and MacOS (Ubuntu 20.04, Ubu
 -----------------------
 SUPPORTED JAVA VERSIONS
 -----------------------
-The Microsoft JDBC Driver 8.4 for SQL Server has been tested and supports latest versions of Java 
+The Microsoft JDBC Driver 9.2 for SQL Server has been tested and supports latest versions of Java 
 Development Kit(JDK) builds from Open JDK and Zulu on supported Operating Systems as mentioned above.
 The below family versions of Java Runtime Environment (JRE) System Library are supported:
 
   ----------------------------------------------------------------------
   JRE Family Version | Driver JAR for Maximum Support
   ----------------------------------------------------------------------
-  8+                 | mssql-jdbc-8.4.1.jre8.jar
-  11+                | mssql-jdbc-8.4.1.jre11.jar
-  14+                | mssql-jdbc-8.4.1.jre14.jar
+  8+                 | mssql-jdbc-9.2.0.jre8.jar
+  11+                | mssql-jdbc-9.2.0.jre11.jar
+  15+                | mssql-jdbc-9.2.0.jre15.jar
 
 
 ----------------
 RELEASE CONTENTS
 ----------------
-The Microsoft JDBC Driver 8.4 for SQL Server zip or tar file unpacks the following files 
+The Microsoft JDBC Driver 9.2 for SQL Server zip or tar file unpacks the following files 
 in the specified locations, relative to the selected installation directory:
 
 <installation directory>\sqljdbc_<version>\<language>\install.txt
 <installation directory>\sqljdbc_<version>\<language>\release.txt
 <installation directory>\sqljdbc_<version>\<language>\license.txt
 <installation directory>\sqljdbc_<version>\<language>\thirdpartynotices.txt
-<installation directory>\sqljdbc_<version>\<language>\mssql-jdbc-8.4.1.jre8.jar
-<installation directory>\sqljdbc_<version>\<language>\mssql-jdbc-8.4.1.jre11.jar
-<installation directory>\sqljdbc_<version>\<language>\mssql-jdbc-8.4.1.jre14.jar
-<installation directory>\sqljdbc_<version>\<language>\auth\x86\mssql-jdbc_auth-8.4.1.x86.dll
-<installation directory>\sqljdbc_<version>\<language>\auth\x64\mssql-jdbc_auth-8.4.1.x64.dll
+<installation directory>\sqljdbc_<version>\<language>\mssql-jdbc-9.2.0.jre8.jar
+<installation directory>\sqljdbc_<version>\<language>\mssql-jdbc-9.2.0.jre11.jar
+<installation directory>\sqljdbc_<version>\<language>\mssql-jdbc-9.2.0.jre15.jar
+<installation directory>\sqljdbc_<version>\<language>\auth\x86\mssql-jdbc_auth-9.2.0.x86.dll
+<installation directory>\sqljdbc_<version>\<language>\auth\x64\mssql-jdbc_auth-9.2.0.x64.dll
 <installation directory>\sqljdbc_<version>\<language>\samples\<sample files...>
 <installation directory>\sqljdbc_<version>\<language>\xa\xa_install.sql
 <installation directory>\sqljdbc_<version>\<language>\xa\x86\sqljdbc_xa.dll
@@ -92,11 +92,11 @@ Please note that the offline help files have been discontinued.
 ---------
 JAR FILES
 ---------
-To support backward compatibility and possible upgrade scenarios, the JDBC Driver 8.4 includes 
+To support backward compatibility and possible upgrade scenarios, the JDBC Driver 9.2 includes 
 three JAR class libraries in each installation package:
-	mssql-jdbc-8.4.1.jre8.jar
-	mssql-jdbc-8.4.1.jre11.jar
-	mssql-jdbc-8.4.1.jre14.jar
+	mssql-jdbc-9.2.0.jre8.jar
+	mssql-jdbc-9.2.0.jre11.jar
+	mssql-jdbc-9.2.0.jre15.jar
 
 
 ----------------------
@@ -115,15 +115,14 @@ A few features in Microsoft JDBC Driver 8.4 for SQL Server are dependent on exte
 as listed below:
 
 1. Using 'Always Encrypted' with Azure Key Vault Provider
-   Dependent libraries: azure-keyvault(version 1.2.4), adal4j(version 1.6.5),
-   and client-runtime(version 1.7.4)
+   Dependent libraries: azure-keyvault(version 4.2.1), and azure-identity(version 1.1.3)
 
 2. Using 'Always Encrypted with secure enclaves'
    Dependent libraries: com.google.code.gson(version 2.8.6),
    and org.bouncycastle(version 1.65). org.bouncycastle is only required for JDK 8.
- 
-3. Using 'Azure Active Directory Integrated Authentication' on Windows, Linux and macOS Operating Systems
-   Dependent libraries: adal4j(version 1.6.5), and client-runtime(version 1.7.4)
+   
+3. Using 'Azure Active Directory Authentication' on Windows, Linux and macOS Operating Systems
+   Dependent libraries: azure-identity(version 1.1.3)
    
 4. Using 'useFmtOnly' to retrieve parameter metadata
    Dependent libraries: antlr-runtime (version 4.7.2)
@@ -142,54 +141,12 @@ documentation.
 -----------
 CHANGE LIST
 -----------
-Changes from 8.4.0.0 to 8.4.1.0:
-- Fixed issue with `SQLServerConnectionPoolProxy` not being compatible with `delayLoadingLobs`.
-- Fixed a potential `NullPointerException` issue with `delayLoadingLobs`.
-- Fixed issue with decrypting column encryption keys using Windows Certificate Store.
-
-Changes from 8.2.2.0 to 8.4.0.0:
-- Added support for sensitivity ranking when using SQL Data Discovery and Classification.
-- Added 'SQLServerDatabaseMetaData.getDatabaseCompatibilityLevel()' API to return the database compatibility level.
-- Added support for Azure SQL DNS Caching.
-- Added delayed durability option to 'SQLServerConnection.commit()'.
-- Added certificate expiry validation when using Always Encrypted with secure enclaves feature.
-- Added SQL State to Exception when connection is closed.
-- Added connection properties to specify custom SocketFactory.
-- Added support for Client Certificate Authentication.
-- Added support for JAVA 14.
-- Added support for authentication to Azure Key Vault using Managed Identity.
-- Updated the driver to throw a warning when TLS version lower than 1.2 is negotiated.
-- Introduced 'SQLServerBulkCSVFileRecord.setEscapeColumnDelimitersCSV()' to escape delimiters and double quotes when using bulk copy to load from CSV files.
-- Introduced extended bulk copy support against Azure Data Warehouse.
-- Introduced 'delayLoadingLobs' connection property to provide backward compatibility when streaming LOBs.
-
- Bug Fixes: 
-- Fixed an issue with 'DatabaseMetaData.getColumns()' intermittently returning table column descriptions in incorrect order.
-- Fixed an issue with spatial datatypes casting error when Always Encrypted is enabled.
-- Fixed an issue with 'DatabaseMetaData.getColumns()' not returning correct type for IS_AUTOINCREMENT and IS_GENERATEDCOLUMN against Azure Data Warehouse.
-- Fixed an issue with 'Geography.STAsBinary()' and 'Geometry.STAsBinary()' returning WKB format instead of CLR format.
-- Fixed an issue with allowing non-MSSQL ResultSets to bulk copy 'DateTimeOffset'.
-- Fixed issues identified by SonarQube.
-- Fixed an issue with batch insertion failing when Always Encrypted is enabled.
-- Fixed an issue with MSI authentication failing due to expiry date format mismatch.
-- Fixed an issue with streams not getting closed when using Always Encrypted with secure enclaves feature.
-- Fixed an issue with retrieving SQL VARIANT as its underlying type.
-- Fixed issues with the driver not being JAVA 8 compliant.
-- Fixed an issue with 'PreparedStatement' when inserting large spatial data types.
-- Fixed an issue with escaping curly brackets in connection string.
-- Fixed a warning when retrieving Operating System information from SQL Server Linux when using distributed transactions.
-
-Improvements:
-- Updated 'SQLServerPreparedStatement.setObject()' to retrieve TVP name from 'SQLServerDataTable'.
-- Improved exception message when connecting to redirection-enabled Azure server.
-- Improved performance when parsing connection string.
-- Added database name to Always Encrypted enclave caching key.
-- Removed unused code.
+For a detailed list of changes, fixes, and improvements made in each release, please see: https://aka.ms/mssql-jdbc-release-notes
 
 ------------
 KNOWN ISSUES
 ------------
-The following are known issues with the Microsoft JDBC Driver 8.4 for SQL Server:
+The following are known issues with the Microsoft JDBC Driver 9.2 for SQL Server:
 
 1) CONNECTION DROPPING WITH SQL AZURE
 
